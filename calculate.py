@@ -100,7 +100,7 @@ def deriv(tree):
     if tree[0] == "arccos":
         new_tree = ['/',[['u',[deriv(f)]],['^',[['-',[1,['^',[f,2]]]],['/',[1,2]]]]]]
     if tree[0] == "log":
-        new_tree = ["/",[deriv(g),["*",[g,["ln",[f]]]]]]
+        new_tree = deriv(["/",[["ln",[g]],["ln",[f]]]])
     if tree[0] == "exp":
         new_tree = ["*",[["exp",[f]],deriv(f)]]
     return simplify(new_tree)
